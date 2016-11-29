@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% block title%} Home {%endblock%}
+
+{% block imports%}
+<style>
+#icon {
+  display: inline-block;
+}
+h4 {
+  text-indent: 50px;
+  text-align: justify;
+}
+</style>
+{%endblock%}
+
+{% block page_name %}
+Hackathon
+{% endblock %}
+
+{% block body %}
+<!-- Heading Row -->
+<div class="row" id="info">
+    <div class="col-md-6">
+        <img id="wall" class="img-responsive img-rounded" src="{{url_for('static',filename='img/all.png')}}" alt="" width="400" >
+    </div>
+    <!-- /.col-md-8 -->
+    <div class="col-md-5">
+        <h2><img id="icon" class="img-responsive img-rounded" src="{{url_for('static',filename='img/icons/line-chart.png')}}"> Vamos te ajudar!</h2>
+        <h4>Você estudante que está em dúvida do que fazer na vida
+        Sabemos que é uma fase difícil, que você está ansioso e com medo pois não tem certeza do que fazer.
+      </h4>
+        <h3>Por isso estamos aqui!</h3>
+        <h4>Juntos queremos te ajudar a decidir o que você pode fazer.
+        Para isso contamos com informações detalhas das profissões, com prós e contras. E o mais importante contamos com a participação de profissionais para vivenciar como é a profissão no dia a dia.
+        </h4>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="more">Cadastrar</button>
+
+    </div>
+    <!-- /.col-md-4 -->
+</div>
+<!-- /.row -->
+
+<div class="row" id="info2">
+    <div class="col-md-6">
+        <img id="wall" class="img-responsive img-rounded" src="{{url_for('static',filename='img/enem.png')}}" alt="">
+    </div>
+    <!-- /.col-md-8 -->
+    <div class="col-md-4">
+        <h1>Vamos começar!</h1>
+
+          <h4>Nosso objetivo é te ajudar a achar a melhor profissão para você, de uma forma divertida e legal para chegar na tomada de decisão de forma tranquila.</h4>
+              <form class="form-signin" action="/cadastro" method="post">
+                <h2 class="form-signin-heading">Informe</h2>
+                <label for="inputEmail" class="sr-only" >Endereço de email...</label><br/>
+                <input type="email" id="inputEmail" name="mail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <p></p>
+                <label for="inputPassword" class="sr-only">Senha...</label>
+                <input type="password" name="passwd" id="inputPassword" class="form-control" placeholder="Password" required="">
+                <h5> Você é:</h5>
+                <p></p>
+                <select class="form-control" name="user">
+										<option value="1">Aluno - Ensino Médio </option>
+										<option value="2">Aluno - Graduação </option>
+                    <option value="3">Profissional</option>
+										<option value="4">Professor</option>
+							    </select>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+              </form>
+
+            <br/>
+            <button class="btn btn-lg btn-primary btn-block" id="more2">Voltar </button>
+
+    </div>
+    <!-- /.col-md-4 -->
+</div>
+<!-- /.row -->
+
+<script>
+$( "#more" ).click(function() {
+  $( "#info" ).hide( "slow" );
+  $( "#info2" ).show( "slow" );
+
+});
+
+$( "#more2" ).click(function() {
+  $( "#info2" ).hide( "slow" );
+  $( "#info" ).show( "slow" );
+
+});
+
+window.onload = function() {
+
+    $( "#info2" ).hide();
+};
+
+</script>
+
+
+
+{% endblock %}
